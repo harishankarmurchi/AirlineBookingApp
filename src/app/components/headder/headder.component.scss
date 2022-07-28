@@ -1,0 +1,24 @@
+.headder{
+    background-color: blueviolet;
+    height: 100%;
+    min-width: 100%;
+    align-items: center;
+}
+.logo{
+    border-style: solid;
+    height: 60px;
+    width: 5%;
+}
+.dropdown-item{
+   color:white;
+}
+.menu{
+   display: flex;
+   justify-content: end;
+   align-items: flex-end;
+}
+.menu-button{
+    font-size: 30px;
+    color: wheat;
+    border: none;
+}

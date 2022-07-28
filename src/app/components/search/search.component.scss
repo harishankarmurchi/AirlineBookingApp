@@ -1,0 +1,45 @@
+
+.search-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.searchbox{
+ margin-left: 0.5%;
+ margin-top: 0.5%;
+ width: 20%;
+ height: 98%;
+ //background-color: bisque;
+//  border: solid;
+//  border-width: 2px;
+}
+
+.result{
+    margin-left: 0.5%;
+    margin-top: 0.5%;
+    width: 79%;
+    height: 98%;
+    //background-color: bisque;
+    // border: solid;
+    // border-width: 2px;
+}
+.form{
+    padding: 20% 5%;
+}
+.mat-form-field{
+    width: 100%;
+}
+.card{
+    margin: 2%;
+}
+
+.viewport {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .example-item {
+    height: 50px;
+  }

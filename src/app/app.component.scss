@@ -1,0 +1,28 @@
+// .container-fluid{
+//     height: 100vh;
+// }
+// .headder-container{
+//    height: 10%;
+// }
+// .body-container{
+//     // padding-top: 5%;
+//     //height: 100%;
+//     background-color: antiquewhite;
+//     min-height: 90%;
+// }
+
+
+.main-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+.headder-container{
+    height: 10%;
+    width: 100%;
+}
+.body-container{
+    height: 90%;
+    width: 100%;
+}
