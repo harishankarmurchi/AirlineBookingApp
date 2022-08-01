@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Signup } from 'src/app/models/Signup';
+import { ServiceEndpoints } from 'src/app/models/ServiceEndpoints';
+import { HttpserviceService } from 'src/app/services/httpservice.service';
+import { Token } from 'src/app/models/Token';
 
 @Component({
   selector: 'app-register',
@@ -8,34 +12,49 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
-  loginForm: FormGroup | any;
-  title = 'material-login';
+  roles:string[]|any
+  registerUser:Signup|any
+  registerForm: FormGroup | any;
   constructor(
-    private router:Router
+    private router:Router,
+    private _service:HttpserviceService
   ) {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email,Validators.pattern(
+    this.registerForm = new FormGroup({
+      userName: new FormControl('', [Validators.required, Validators.email,Validators.pattern(
         '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,63}$',
       ),]),
       password: new FormControl('', [Validators.required,Validators.pattern(
         '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
       )]),
       name:new FormControl('',[Validators.required]),
-      confirmpassword: new FormControl('',[Validators.required])
+      role: new FormControl('',[Validators.required])
     });
    }
 
    onSubmit(){
-    if(!this.loginForm.valid){
+   
+    if(!this.registerForm.valid){
       return;
     }
-    localStorage.setItem('user',this.loginForm.value)
-    this.router.navigate(['/home'])
+    this.registerUser=this.registerForm.value;
+    this._service.POST(ServiceEndpoints.REGISTER,false,this.registerUser)
+    .subscribe(
+      (result:Token) =>{
+         localStorage.setItem("token",result.token);
+         localStorage.setItem("refreshToken",result.refreshToken);
+      }
+    )
+    
   }
 
 
   ngOnInit(): void {
+    this._service.get(ServiceEndpoints.GET_ROLES)
+    .subscribe((res:string[]) =>{
+      console.log(res);
+      this.roles=res;
+    })
+    console.log(this.roles);
   }
 
 }

@@ -1,0 +1,8 @@
+<div class="container" style="height:40%;width: 30%; align-items: center;">
+ <form [formGroup]="pnrForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput placeholder="PNR No" formControlName="pnrno">       
+    </mat-form-field>
+    <input type="submit"/>
+ </form>
+</div>

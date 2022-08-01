@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'AirlineBookingApp';
   isLoggedin:boolean=false
   constructor() {
-    localStorage.setItem('token',"abc");
+    //localStorage.setItem('token',"abc");
     var x = localStorage.getItem('token');
     if(x!=undefined && x!= null )
     {

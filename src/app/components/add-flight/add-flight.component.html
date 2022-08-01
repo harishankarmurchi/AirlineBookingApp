@@ -1,0 +1,111 @@
+<form [formGroup]="addFlightForm" (ngSubmit)="onSubmit()">
+    <h2 mat-dialog-title>Reshedule Flight</h2>
+    <mat-dialog-content class="mat-typography">
+        <div class="container">
+          <div class="row" >
+            <div class="col-4">
+                <mat-form-field>
+                    <input  matInput placeholder="FlightNo*" formControlName="flightNumber">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input  matInput placeholder="InstrumentUsed*" formControlName="instrumentUsed">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input  matInput placeholder="Cost*" formControlName="ticketCost">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input  matInput placeholder="Business Seats*" formControlName="businessClassSeats">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input  matInput placeholder="Non Business Seats*" formControlName="nonBusinessClassSeats">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                
+                
+                
+            </div>
+            <div class="col-4">
+
+                <mat-form-field>
+                    <input  matInput placeholder="No Of Rows" formControlName="noOfRows">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>From</mat-label>
+                    <mat-select matNativeControl required formControlName="fromPlaceId">
+                      <span *ngFor="let item of places">
+                        <mat-option [value]="item.placeId">{{item.placeName}}</mat-option>
+                      </span>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>To</mat-label>
+                    <mat-select matNativeControl required formControlName="toPlaceId">
+                      <span *ngFor="let item of places">
+                        <mat-option [value]="item.placeId">{{item.placeName}}</mat-option>
+                      </span>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Airline</mat-label>
+                    <mat-select matNativeControl required formControlName="airlineId">
+                      <span *ngFor="let item of airlines">
+                        <mat-option [value]="item.id">{{item.name}}</mat-option>
+                      </span>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose Start date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="startDate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose End date</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="endDate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                  </mat-form-field>
+                  <mat-form-field appearance="fill">
+                    <mat-label>MealType</mat-label>
+                    <mat-select matNativeControl required formControlName="mealTypeId">
+                      <span *ngFor="let item of meals">
+                        <mat-option [value]="item.mealId">{{item.mealType}}</mat-option>
+                      </span>
+                    </mat-select>
+                  </mat-form-field>
+                   {{addFlightForm.value.sheduleDays}}
+                  <mat-form-field appearance="fill">
+                    <mat-label>Toppings</mat-label>
+                    <mat-select formControlName="shedhuleDays" multiple>
+                      <mat-select-trigger>
+        
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let day of weekList" [value]="day">{{day}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+    
+        </div>
+        </div>
+    
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <input type="submit"/>
+    </mat-dialog-actions>
+    </form>
+    

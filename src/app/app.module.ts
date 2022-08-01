@@ -1,43 +1,60 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HeadderComponent } from './components/headder/headder.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import {  MatSelectModule} from '@angular/material/select';
-import {  MatDatepickerModule} from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { SearchComponent } from './components/search/search.component';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-import {MatCardModule} from '@angular/material/card';
-import {MatNativeDateModule} from '@angular/material/core';
+import { AddAirlineComponent } from './components/add-airline/add-airline.component';
+import { AddFlightComponent } from './components/add-flight/add-flight.component';
+import { BookingComponent } from './components/booking/booking.component';
+import { MyticketsComponent } from './components/mytickets/mytickets.component';
+import {HttpClientModule} from '@angular/common/http'
+import { AilinePopupComponent } from './popup-components/ailine-popup/ailine-popup.component';
+import { FlightPopupComponent } from './popup-components/flight-popup/flight-popup.component';
+import { AirlineCardComponent } from './components/airline-card/airline-card.component';
+import { LoaderComponent } from './popup-components/loader/loader.component'
+import { MaterialModule } from './material/material.module';
+import { FlightCardComponent } from './components/flight-card/flight-card.component';
+import { DatePipe } from '@angular/common';
+import { ResheduleComponent } from './popup-components/reshedule/reshedule.component';
+import { TicketPopupComponent } from './popup-components/ticket-popup/ticket-popup.component';
+import { MyTicketComponent } from './components/my-ticket/my-ticket.component';
+import { PnrstatusComponent } from './components/pnrstatus/pnrstatus.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeadderComponent,
     RegisterComponent,
-    SearchComponent
+    SearchComponent,
+    AddAirlineComponent,
+    AddFlightComponent,
+    BookingComponent,
+    MyticketsComponent,
+    AilinePopupComponent,
+    FlightPopupComponent,
+    AirlineCardComponent,
+    LoaderComponent,
+    FlightCardComponent,
+    ResheduleComponent,
+    TicketPopupComponent,
+    MyTicketComponent,
+    PnrstatusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule,
+    MaterialModule,
     ReactiveFormsModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatCardModule,
-    ScrollingModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

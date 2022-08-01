@@ -1,0 +1,76 @@
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography w-80">
+    <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>PNR</td>
+            <td>{{data.pnrNo}}</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>{{!data.isCancelled}}</td>
+          </tr>
+          <tr>
+            <td>FlightNo</td>
+            <td>{{data.flightDetail.flightNumber}}</td>
+          </tr>
+          <tr>
+            <td>AirlineName</td>
+            <td>{{data.flightDetail.airlineName}}</td>
+          </tr>
+        
+          <tr>
+            <td>StartDate</td>
+            <td>{{data.flightDetail.startDate}}</td>
+          </tr>
+          <tr>
+            <td>EndDate</td>
+            <td>{{data.flightDetail.endDate}}</td>
+          </tr>
+          <tr>
+            <td>From</td>
+            <td>{{data.flightDetail.fromPlace}}</td>
+          </tr>
+          <tr>
+            <td>To</td>
+            <td>{{data.flightDetail.toPlace}}</td>
+          </tr>
+          <tr>
+            <td>Passengers</td>
+            <td>
+                <table class="table table-bordered table-dark">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">SeatNo</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let item of data.passengers">
+                       
+                        <tr>
+                            <td>{{item.name}}</td>
+                            <td>{{item.age}}</td>
+                            <td>{{item.seatNo}}</td>
+                        </tr>
+                    
+                      
+                     
+                    </tbody>
+                  </table>
+            </td>
+          </tr>
+          <tr>
+            <td>Total Cost</td>
+            <td>80000</td>
+          </tr>
+
+        </tbody>
+      </table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>
+

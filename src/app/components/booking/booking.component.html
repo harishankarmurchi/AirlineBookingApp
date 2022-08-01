@@ -1,0 +1,65 @@
+<h2 mat-dialog-title>Add Passenger</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    <div class="row">
+      <div class="col-4 h-100">
+       <form [formGroup]="passengerForm" (ngSubmit)="onAdd()">
+        <mat-form-field>
+            <input  matInput placeholder="Name*" formControlName="name">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input  matInput placeholder="Age" formControlName="age">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Seats</mat-label>
+            <mat-select matNativeControl required formControlName="seatNo">
+              <span *ngFor="let item of seats">
+                <mat-option [value]="item" [disabled]="item.isBooked">{{item.seatName}}</mat-option>
+              </span>
+              
+              
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <mat-checkbox formControlName="isOptedForMeal">Meal</mat-checkbox>
+          <br>
+          <input type="submit"/>
+       </form>
+      </div>
+      <div class="col-8 h-100">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">SeatNo</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of passengerlist">
+                
+              <tr>
+                <th scope="row">1</th>
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.seatNo}}</td>
+              </tr>
+             
+            </tbody>
+          </table>
+     
+    </div>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <b>Total Amount: {{amount}}</b>
+  <div>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button (click)="onSubmit()">Book Ticket</button>
+ </div>
+</mat-dialog-actions>

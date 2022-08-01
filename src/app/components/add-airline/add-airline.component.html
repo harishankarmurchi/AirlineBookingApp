@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="addcontainer">
+    <!-- <span>Airline List</span> -->
+    <button (click)="onAddAirline()">+ ADD Airline</button>
+  </div>
+  <div class="list-container">
+  <div class="active-container">
+    
+    <cdk-virtual-scroll-viewport appendOnly itemSize="10" class="viewport">
+      <div *cdkVirtualFor="let item of airlines">
+        <app-airline-card [airline]="item"></app-airline-card>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+  <div class="blocked-container">
+
+  </div>
+</div>
+</div>

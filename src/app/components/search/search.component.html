@@ -1,49 +1,44 @@
 <div class="search-container">
   <div class="searchbox">
     
-  <form class="form">
+  <form class="form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
-      <mat-label>Cars</mat-label>
-      <mat-select matNativeControl required>
-        <mat-option value="volvo">Volvo</mat-option>
-        <mat-option value="saab">Saab</mat-option>
-        <mat-option value="mercedes">Mercedes</mat-option>
-        <mat-option value="audi">Audi</mat-option>
+      <mat-label>To</mat-label>
+      <mat-select matNativeControl required formControlName="toPlaceId">
+        <span *ngFor="let item of places">
+          <mat-option [value]="item.placeId">{{item.placeName}}</mat-option>
+        </span>
+        
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Cars</mat-label>
-      <mat-select matNativeControl required>
-        <mat-option value="volvo">Volvo</mat-option>
-        <mat-option value="saab">Saab</mat-option>
-        <mat-option value="mercedes">Mercedes</mat-option>
-        <mat-option value="audi">Audi</mat-option>
+      <mat-label>From</mat-label>
+      <mat-select matNativeControl required formControlName="fromPlaceId">
+        <span *ngFor="let item of places">
+          <mat-option [value]="item.placeId">{{item.placeName}}</mat-option>
+        </span>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Choose Journey date</mat-label>
-      <input matInput [matDatepicker]="picker">
+      <input matInput [matDatepicker]="picker" formControlName="journeyDate">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    
+     
+    <input type="submit"/>
   </form>
 
+
+  <input type="submit" value="Add Flight" (click)="openDailog()"/>
   </div>
   <div class="result">
     <cdk-virtual-scroll-viewport appendOnly itemSize="10" class="viewport">
-    <div *cdkVirtualFor="let item of list">
-      <div class="card">
-        <h5 class="card-header">Featured</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+    <div *cdkVirtualFor="let item of flightList">
+      <app-flight-card [item]="item"></app-flight-card>
     </div>
   </cdk-virtual-scroll-viewport>
 

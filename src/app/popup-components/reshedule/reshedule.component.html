@@ -1,0 +1,32 @@
+<form [formGroup]="sheduleForm" (ngSubmit)="onSubmit()">
+<h2 mat-dialog-title>Reshedule Flight</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+      <div class="row" >
+        <div class="col-6">
+            <mat-form-field appearance="fill">
+                <mat-label>Choose Journey date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="startDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field appearance="fill">
+                <mat-label>Choose Journey date</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="endDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+        </div>
+
+    </div>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <input type="submit"/>
+</mat-dialog-actions>
+</form>

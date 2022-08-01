@@ -1,0 +1,45 @@
+
+  <form class="text-center" [formGroup]="addAirlineForm" (ngSubmit)="onSubmit()" novalidate>
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" >
+          <mat-form-field>
+            <input  matInput placeholder="Airline Name*" formControlName="name">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input  matInput placeholder="Address" formControlName="address">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input  matInput placeholder="Mobile*" formControlName="contactNo">
+            <!-- <mat-error *ngIf="service.form.controls['mobile'].errors?.required">This field is mandatory.</mat-error> -->
+            <!-- <mat-error *ngIf="service.form.controls['mobile'].errors?.minlength">Minimum 8 charactors needed.</mat-error> -->
+          </mat-form-field>
+        </div>
+        
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+          
+          
+          <mat-form-field style="width: 80%;">
+            <mat-label>Add Description</mat-label>
+            <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+          </mat-form-field>
+
+          <input type="file" placeholder="choose.jpeg/.png" formControlName="logo"/>
+          
+        </div>
+      </mat-grid-tile>
+      
+    </mat-grid-list>
+    
+    <div class="button-row">
+      <button mat-raised-button color="primary" type="submit" >Add</button>
+      <button mat-raised-button color="warn" class="m-2">Close</button>
+    </div>
+  </form>
+
+ 
