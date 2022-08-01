@@ -6,7 +6,7 @@ export const ServiceEndpoints={
 
 
     ADD_FLIGHT:"/flight/Airline/inventory/add",
-    ADD_AIRLINR:"",
+    ADD_AIRLINR:"/flight/Airline/addairline",
     GET_AIRLINES:"/flight/Master/airline",
     GET_AIRLINE_MASTER_DATA:"/flight/Master/masterdata",
     UPDATE_FLIGHT:"/flight/Airline/reshedule",

@@ -1,9 +1,11 @@
 <div class="card w-90">
-    <h5 class="card-header">{{item.flightNumber}}</h5>
+    <h5 class="card-header">{{item.airline.name}}</h5>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-     <button (click)="onBook()">Book</button>
-     <button (click)="onReshedule()">ReShedule</button>
+      <h3 class="card-title">{{item.flightNumber}}</h3>
+      <h4 class="card-title">Journey Date:{{item.startDate}}</h4>
+      <h4 class="card-title">To: {{item.toPlaceName}}</h4>
+      <h4 class="card-title">From: {{item.fromPlaceName}}</h4>
+     <button class="btn btn-primary" (click)="onBook()">Book</button>
+     <button class="btn btn-danger" (click)="onReshedule()">ReShedule</button>
     </div>
   </div>

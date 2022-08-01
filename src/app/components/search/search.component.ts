@@ -50,7 +50,7 @@ export class SearchComponent implements OnInit {
     openDailog(){
       var dailogConfig= new MatDialogConfig();
     dailogConfig.autoFocus=true;
-    dailogConfig.disableClose=true;
+    dailogConfig.disableClose=false;
     dailogConfig.width = "90%";
     
     var data =this.dailog.open(AddFlightComponent,dailogConfig);

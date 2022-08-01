@@ -82,6 +82,10 @@ export class BookingComponent implements OnInit {
      
   }
 
+  onClose(){
+    this.dialogRef.close('');
+  }
+
   ngOnInit(): void {
   }
 

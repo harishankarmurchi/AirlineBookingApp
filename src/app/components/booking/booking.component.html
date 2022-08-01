@@ -59,7 +59,7 @@
 <mat-dialog-actions align="end">
   <b>Total Amount: {{amount}}</b>
   <div>
-  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="onClose()">Cancel</button>
   <button (click)="onSubmit()">Book Ticket</button>
  </div>
 </mat-dialog-actions>

@@ -8,7 +8,8 @@
     </mat-card-content>
     
     <mat-card-actions>
-      <button mat-button>LIKE</button>
+      <button mat-button (click)="onBlock()" *ngIf="airline.isActive">Block</button>
+      <button mat-button (click)="onUnBlock()" *ngIf="!airline.isActive">UnBlock</button>
     </mat-card-actions>
 
   </mat-card>

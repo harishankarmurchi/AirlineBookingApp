@@ -26,9 +26,13 @@ export class FlightCardComponent implements OnInit {
     dailogConfig.data=this.item
     var ref=this.dailog.open(BookingComponent,dailogConfig);
     ref.afterClosed().subscribe(
-      (res:Ticket) =>{
+      (res:Ticket|string) =>{
+        if(res!= "")
+        {
+        console.log(res);
         dailogConfig.data=res;
         this.dailog.open(TicketPopupComponent,dailogConfig)
+        }
       }
     )
   }
@@ -36,7 +40,7 @@ export class FlightCardComponent implements OnInit {
   onReshedule(){
     var dailogConfig= new MatDialogConfig();
     dailogConfig.autoFocus=true;
-    dailogConfig.disableClose=true;
+    dailogConfig.disableClose=false;
     dailogConfig.width = "90%";
     dailogConfig.data=this.item
     this.dailog.open(ResheduleComponent,dailogConfig);

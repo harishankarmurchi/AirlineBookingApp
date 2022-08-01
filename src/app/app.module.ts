@@ -12,7 +12,7 @@ import { AddAirlineComponent } from './components/add-airline/add-airline.compon
 import { AddFlightComponent } from './components/add-flight/add-flight.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { MyticketsComponent } from './components/mytickets/mytickets.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AilinePopupComponent } from './popup-components/ailine-popup/ailine-popup.component';
 import { FlightPopupComponent } from './popup-components/flight-popup/flight-popup.component';
 import { AirlineCardComponent } from './components/airline-card/airline-card.component';
@@ -24,6 +24,7 @@ import { ResheduleComponent } from './popup-components/reshedule/reshedule.compo
 import { TicketPopupComponent } from './popup-components/ticket-popup/ticket-popup.component';
 import { MyTicketComponent } from './components/my-ticket/my-ticket.component';
 import { PnrstatusComponent } from './components/pnrstatus/pnrstatus.component';
+import { HttpInterseptorService } from './services/http-interseptor.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,13 @@ import { PnrstatusComponent } from './components/pnrstatus/pnrstatus.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:HttpInterseptorService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,13 +7,17 @@
   <div class="active-container">
     
     <cdk-virtual-scroll-viewport appendOnly itemSize="10" class="viewport">
-      <div *cdkVirtualFor="let item of airlines">
-        <app-airline-card [airline]="item"></app-airline-card>
+      <div *cdkVirtualFor="let item of nonBlockedAirlines">
+        <app-airline-card [airline]="item" (airlineEvent)="handelEvent()"></app-airline-card>
       </div>
     </cdk-virtual-scroll-viewport>
   </div>
   <div class="blocked-container">
-
+    <cdk-virtual-scroll-viewport appendOnly itemSize="10" class="viewport">
+      <div *cdkVirtualFor="let item of blockedAirlines">
+        <app-airline-card [airline]="item" (airlineEvent)="handelEvent()"></app-airline-card>
+      </div>
+    </cdk-virtual-scroll-viewport>
   </div>
 </div>
 </div>

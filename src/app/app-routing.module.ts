@@ -8,6 +8,7 @@ import { MyticketsComponent } from './components/mytickets/mytickets.component';
 import { PnrstatusComponent } from './components/pnrstatus/pnrstatus.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SearchComponent } from './components/search/search.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
   },
   {
     path:'search',
-    component:SearchComponent
+    component:SearchComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'login',
@@ -28,20 +30,24 @@ const routes: Routes = [
   },
   {
     path:"addairline",
-    component:AddAirlineComponent
+    component:AddAirlineComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"addflight",
-    component:AddFlightComponent
+    component:AddFlightComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"pnrstatus",
-    component:PnrstatusComponent
+    component:PnrstatusComponent,
+    canActivate:[AuthGuard]
   }
   ,
   {
     path:"mytickets",
-    component:MyticketsComponent
+    component:MyticketsComponent,
+    canActivate:[AuthGuard]
   }
 ];
 

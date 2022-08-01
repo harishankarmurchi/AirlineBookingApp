@@ -50,6 +50,8 @@ export class ResheduleComponent implements OnInit {
 
   }
 
-
+  onClose(){
+    this.dialogRef.close();
+  }
 
 }

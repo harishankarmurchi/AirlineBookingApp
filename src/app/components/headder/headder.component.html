@@ -15,9 +15,13 @@
                     <i class="fa-2x bi-person icon-style"></i>
                 </button>
                 <ul class="dropdown-menu bg-dark">
-                  <li><a class="dropdown-item bg-dark" href="#">Action</a></li>
-                  <li><a class="dropdown-item bg-dark" href="#">Another action</a></li>
-                  <li><a class="dropdown-item bg-dark" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item bg-dark" routerLink="/search">Search</a></li>
+                  <li><a class="dropdown-item bg-dark" routerLink="/addairline">Add/Update Airlinr</a></li>
+                  <li><a class="dropdown-item bg-dark" routerLink="/mytickets">My Tickets</a></li>
+                  <li><a class="dropdown-item bg-dark" routerLink="/pnrstatus">PNR Status</a></li>
+                  <li><a class="dropdown-item bg-dark" (click)="onLogout()">Logout</a></li>
+                  
+                  
                 </ul>
               </div>
         </div>

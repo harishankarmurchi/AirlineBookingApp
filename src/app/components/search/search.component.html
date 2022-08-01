@@ -36,6 +36,9 @@
   <input type="submit" value="Add Flight" (click)="openDailog()"/>
   </div>
   <div class="result">
+    <div class="container" *ngIf="flightList=== undefined">
+          <h2>No Flights</h2>
+    </div>
     <cdk-virtual-scroll-viewport appendOnly itemSize="10" class="viewport">
     <div *cdkVirtualFor="let item of flightList">
       <app-flight-card [item]="item"></app-flight-card>
