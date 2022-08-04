@@ -1,4 +1,4 @@
-<div class="search-container">
+<!-- <div class="search-container">
   <div class="searchbox">
     
   <form class="form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
@@ -51,10 +51,59 @@
 
 
 
-  </div>
-</div>
+  <!-- </div>
+</div> -->
 
  
 
 
-  
+
+
+
+
+   <div class="search-comtainer">
+    <div class="search-tab">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+            <div class="col-outer">
+                <mat-form-field appearance="fill" color="white">
+                    <mat-label>From</mat-label>
+                    <mat-select matNativeControl required formControlName="toPlaceId">
+                      <span *ngFor="let item of places">
+                        <mat-option [value]="item.placeId">{{item.placeName}}</mat-option>
+                      </span>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="col-outer">
+                <mat-form-field appearance="fill">
+                    <mat-label>To</mat-label>
+                    <mat-select matNativeControl required formControlName="fromPlaceId">
+                      <span *ngFor="let item of places">
+                        <mat-option [value]="item.placeId">{{item.placeName}}</mat-option>
+                      </span>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="col-outer">
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose Journey date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="journeyDate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                <button class="btn">Search Flight</button>
+              </div>
+           </form>
+           <button class="btn" *ngIf="isAdmin" (click)="openDailog()">Add Flight</button>
+    </div>
+    <div class="flight-tab">
+      <cdk-virtual-scroll-viewport appendOnly itemSize="10" class="viewport">
+        <div *cdkVirtualFor="let item of flightList">
+          <app-flight-card [item]="item"></app-flight-card>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+</div>
+
+

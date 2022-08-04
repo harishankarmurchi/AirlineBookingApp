@@ -1,0 +1,28 @@
+.card-container-style{
+    height: 30%;
+}
+.card-style{
+ height: 100%;
+ background: rgba(110, 109, 109, 0.5);
+ box-sizing: border-box;
+ box-shadow: 0 15px 25px rgba(0,0,0,.6);
+ border-radius: 10px;
+}
+.col-9{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.col-9 p{
+    padding: 0;
+    margin: 0;
+}
+.row{
+    margin: 1%;
+}
+
+.row .col-2{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}

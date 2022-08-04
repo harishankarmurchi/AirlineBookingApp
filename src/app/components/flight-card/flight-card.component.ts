@@ -12,11 +12,16 @@ import { BookingComponent } from '../booking/booking.component';
   styleUrls: ['./flight-card.component.scss']
 })
 export class FlightCardComponent implements OnInit {
-
+  isAdmin=false;
   constructor(private dailog:MatDialog) { }
   @Input() item!:Flight
 
   ngOnInit(): void {
+    var role= localStorage.getItem('role')
+    if(role!= undefined && role=='Admin')
+    {
+      this.isAdmin=true;
+    }
   }
   onBook(){
     var dailogConfig= new MatDialogConfig();

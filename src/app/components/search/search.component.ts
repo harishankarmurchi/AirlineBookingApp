@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   airlineList:AirlineModel[]|any
   searchFormData:Search|any
   places:Place[]|any
+  isAdmin=false;
   list=[1,2,3,4,5,6,7,8,9,10]
   constructor(private dailog:MatDialog,
     private _service:HttpserviceService,
@@ -62,7 +63,11 @@ export class SearchComponent implements OnInit {
     }
 
   ngOnInit(): void {
-
+    var role= localStorage.getItem('role')
+    if(role!= undefined && role=='Admin')
+    {
+      this.isAdmin=true;
+    }
     this._service.get(ServiceEndpoints.GET_AIRLINE_MASTER_DATA)
     .subscribe(
       result =>{

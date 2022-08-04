@@ -1,28 +1,9 @@
-<!-- <span *ngIf="isLoggedin;else app"> -->
-<!-- <div class="container-fluid">
-  <div class="row headder-container">
-    <app-headder></app-headder>
-  </div>
 
-  <div class="row body-container">
-    <router-outlet></router-outlet>
-  </div>
-</div> -->
-<!-- </span> -->
-<!-- <ng-template #app>
-  <app-register></app-register>
-</ng-template> -->
-<span *ngIf="isLoggedin;else app">
-<div class="main-container">
-  <div class="headder-container">
-    <app-headder></app-headder>
-  </div>
-  <div class="body-container">
-  <router-outlet></router-outlet>
-  </div>
+<app-headder> </app-headder>
 
-</div>
-</span>
-<ng-template #app>
-  <router-outlet></router-outlet>
-</ng-template>
+  <section>
+      
+          <router-outlet></router-outlet>
+     
+  </section>
+

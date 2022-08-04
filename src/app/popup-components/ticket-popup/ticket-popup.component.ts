@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Ticket } from 'src/app/models/Ticket';
+import { jsPDF } from "jspdf";
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-ticket-popup',
@@ -32,6 +34,23 @@ export class TicketPopupComponent implements OnInit {
 //     }
 //   ]
 // }
+html:any
+exportHtmlToPDF(){
+  this.html = document.getElementById('htmltable');
+    console.log(this.html)
+    html2canvas(this.html).then(canvas => {
+        
+        let docWidth = 208;
+        let docHeight = canvas.height * docWidth / canvas.width;
+        
+        const contentDataURL = canvas.toDataURL('image/png')
+        let doc = new jsPDF('p', 'mm', 'a4');
+        let position = 0;
+        doc.addImage(contentDataURL, 'PNG', 0, position, docWidth, docHeight)
+        
+        doc.save('exportedPdf.pdf');
+    });
+}
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Ticket

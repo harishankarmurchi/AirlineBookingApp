@@ -1,38 +1,38 @@
 
-.search-container{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-.searchbox{
- margin-left: 0.5%;
- margin-top: 0.5%;
- width: 20%;
- height: 98%;
- //background-color: bisque;
-//  border: solid;
-//  border-width: 2px;
-}
+// .search-container{
+//   height: 100%;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: row;
+// }
+// .searchbox{
+//  margin-left: 0.5%;
+//  margin-top: 0.5%;
+//  width: 20%;
+//  height: 98%;
+//  //background-color: bisque;
+// //  border: solid;
+// //  border-width: 2px;
+// }
 
-.result{
-    margin-left: 0.5%;
-    margin-top: 0.5%;
-    width: 79%;
-    height: 98%;
-    //background-color: bisque;
-    // border: solid;
-    // border-width: 2px;
-}
-.form{
-    padding: 20% 5%;
-}
-.mat-form-field{
-    width: 100%;
-}
-.card{
-    margin: 2%;
-}
+// .result{
+//     margin-left: 0.5%;
+//     margin-top: 0.5%;
+//     width: 79%;
+//     height: 98%;
+//     //background-color: bisque;
+//     // border: solid;
+//     // border-width: 2px;
+// }
+// .form{
+//     padding: 20% 5%;
+// }
+// .mat-form-field{
+//     width: 100%;
+// }
+// .card{
+//     margin: 2%;
+// }
 
 .viewport {
     overflow: auto;
@@ -43,4 +43,76 @@
   .example-item {
     height: 50px;
   }
+  
+
+.search-comtainer{
+  margin-top: 5px;
+  height: 90vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.search-tab{
+height: 96%;
+width: 20%;
+padding-top: 3%;
+margin: 1% 2% 2% 2%;
+background: rgba(238, 231, 231, 0.959);
+box-sizing: border-box;
+box-shadow: 0 15px 25px rgba(0,0,0,.6);
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+}
+.flight-tab{
+height: 96%;
+width: 80%;
+padding: 3%;
+margin: 1% 2% 2% 0%;
+//  background: rgba(110, 109, 109, 0.5);
+//  box-sizing: border-box;
+//  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+//  border-radius: 10px;
+align-items: center;
+justify-content: center;
+}
+.col-outer{
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin-top: 2px;
+}
+.col-outer mat-form-field{
+  font-size: 15px;
+  width: 100%;
+  padding: 0px 20px;
+  margin: 0px 8px 8px 8px;
+  box-sizing: border-box;
+  color: aliceblue;
+  
+  }
+.col-outer select{
+  font-size: 15px;
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 8px 8px 8px;
+  box-sizing: border-box;
+}
+.btn{
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgb(82, 78, 78) 0%, rgba(30,82,210,1) 100%, rgba(7,28,93,1) 100%, rgba(121,9,9,1) 100%, rgba(0,212,255,1) 100%);
+  width: 90%;
+  height: 35px;
+  border: none;
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  margin-top: 11px; 
+  margin-left: 5%;
+  border-radius: 10px;
+  align-items: center;
+  color: aliceblue;
+  }
+
   

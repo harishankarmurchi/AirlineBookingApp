@@ -29,7 +29,6 @@ export class MyticketsComponent implements OnInit {
   onShow(item:Ticket){
     var dailogConfig= new MatDialogConfig();
     dailogConfig.autoFocus=true;
-    dailogConfig.disableClose=true;
     dailogConfig.width = "90%";
     dailogConfig.data=item;
     this.dailog.open(TicketPopupComponent,dailogConfig);

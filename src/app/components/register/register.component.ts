@@ -5,6 +5,7 @@ import { Signup } from 'src/app/models/Signup';
 import { ServiceEndpoints } from 'src/app/models/ServiceEndpoints';
 import { HttpserviceService } from 'src/app/services/httpservice.service';
 import { Token } from 'src/app/models/Token';
+import { InteractionService } from 'src/app/services/interaction.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,8 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup | any;
   constructor(
     private router:Router,
-    private _service:HttpserviceService
+    private _service:HttpserviceService,
+    private _interaction:InteractionService
   ) {
     this.registerForm = new FormGroup({
       userName: new FormControl('', [Validators.required, Validators.email,Validators.pattern(
@@ -42,6 +44,9 @@ export class RegisterComponent implements OnInit {
       (result:Token) =>{
          localStorage.setItem("token",result.token);
          localStorage.setItem("refreshToken",result.refreshToken);
+         localStorage.setItem("role",result.role);
+         this._interaction.onlogin();
+         this.router.navigate(['/search'])
       }
     )
     
