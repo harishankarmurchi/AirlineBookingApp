@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered mt-3">
     <thead>
       <tr>
         <th scope="col">PnrNo</th>
@@ -14,8 +14,8 @@
         <td>{{item.flightDetail.flightNumber}}</td>
         <td>{{item.flightDetail.airlineName}}</td>
         <td>{{item.flightDetail.startDate}}</td>
-        <td><input type="submit" value="Show" (click)="onShow(item)"/></td>
-        <td><input type="submit" value="Cancel" [disabled]="item.isCancelled" (click)="onCancel(item)"/></td>
+        <td><input class="btn btn-primary" type="submit" value="Show" (click)="onShow(item)"/></td>
+        <td><input class="btn btn-danger"type="submit" value="Cancel" [disabled]="item.isCancelled" (click)="onCancel(item)"/></td>
       </tr>
     </tbody>
   </table>

@@ -25,6 +25,7 @@ import { TicketPopupComponent } from './popup-components/ticket-popup/ticket-pop
 import { MyTicketComponent } from './components/my-ticket/my-ticket.component';
 import { PnrstatusComponent } from './components/pnrstatus/pnrstatus.component';
 import { HttpInterseptorService } from './services/http-interseptor.service';
+import { DiscountComponent } from './popup-components/discount/discount.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { HttpInterseptorService } from './services/http-interseptor.service';
     ResheduleComponent,
     TicketPopupComponent,
     MyTicketComponent,
-    PnrstatusComponent
+    PnrstatusComponent,
+    DiscountComponent
   ],
   imports: [
     BrowserModule,

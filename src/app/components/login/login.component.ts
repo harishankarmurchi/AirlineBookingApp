@@ -5,6 +5,7 @@ import { Login } from 'src/app/models/Login';
 import { ServiceEndpoints } from 'src/app/models/ServiceEndpoints';
 import { Token } from 'src/app/models/Token';
 import { HttpserviceService } from 'src/app/services/httpservice.service';
+import { InteractionService } from 'src/app/services/interaction.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   title = 'material-login';
   constructor(
     private router:Router,
-    private _service:HttpserviceService
+    private _service:HttpserviceService,
+    private _interaction:InteractionService
   ) {
     this.loginForm = new FormGroup({
       userName: new FormControl('', [Validators.required, Validators.email,Validators.pattern(
@@ -39,6 +41,8 @@ export class LoginComponent implements OnInit {
       (result:Token) =>{
          localStorage.setItem("token",result.token);
          localStorage.setItem("refreshToken",result.refreshToken);
+         localStorage.setItem("role",result.role);
+         this._interaction.onlogin();
          this.router.navigate(['/search'])
       }
     )

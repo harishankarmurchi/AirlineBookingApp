@@ -12,16 +12,25 @@ import { BookingComponent } from '../booking/booking.component';
   styleUrls: ['./flight-card.component.scss']
 })
 export class FlightCardComponent implements OnInit {
-
+  isAdmin=false;
+  image:any;
   constructor(private dailog:MatDialog) { }
   @Input() item!:Flight
 
   ngOnInit(): void {
+    var role= localStorage.getItem('role')
+    if(role!= undefined && role=='Admin')
+    {
+      this.isAdmin=true;
+    }
+   var utfencode= new TextEncoder();
+   this.image= this.item.airline.logo;
   }
+
+  
   onBook(){
     var dailogConfig= new MatDialogConfig();
     dailogConfig.autoFocus=true;
-    dailogConfig.disableClose=true;
     dailogConfig.width = "90%";
     dailogConfig.data=this.item
     var ref=this.dailog.open(BookingComponent,dailogConfig);

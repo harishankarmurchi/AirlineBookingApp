@@ -29,7 +29,7 @@ this._service.get(url).subscribe(
   (res:Ticket)=>{
     var dailogConfig= new MatDialogConfig();
     dailogConfig.autoFocus=true;
-    dailogConfig.disableClose=true;
+    
     dailogConfig.width = "90%";
     dailogConfig.data=res;
     this.dailog.open(TicketPopupComponent,dailogConfig);

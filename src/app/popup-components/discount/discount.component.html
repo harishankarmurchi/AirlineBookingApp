@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+<mat-form-field appearance="fill">
+    <mat-label>To</mat-label>
+    <mat-select matNativeControl required formControlName="discount">
+        
+      <span *ngFor="let item of discounts">
+        <mat-option [value]="item.discountPercentage">{{item.code}}</mat-option>
+      </span>
+    </mat-select>
+  </mat-form-field>
+
+  <button (click)="onSubmit()">Submit</button>
+</form>

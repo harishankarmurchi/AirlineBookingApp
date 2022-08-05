@@ -17,5 +17,6 @@ export const ServiceEndpoints={
     BOOK_TICKET:"/ticket/Ticket/bookticket",
     CANCEL_TICKET:"/ticket/Ticket/cancelticket?pnrno=",
     GET_MY_TICKETS:"/ticket/Ticket/getticket",
-    GET_BY_PNR:"/ticket/Ticket/getticket/"
+    GET_BY_PNR:"/ticket/Ticket/getticket/",
+    GET_Discounts:"/ticket/Ticket/discount"
 }

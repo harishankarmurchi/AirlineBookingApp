@@ -1,11 +1,43 @@
-<div class="card w-90">
-    <h5 class="card-header">{{item.airline.name}}</h5>
-    <div class="card-body">
-      <h3 class="card-title">{{item.flightNumber}}</h3>
-      <h4 class="card-title">Journey Date:{{item.startDate}}</h4>
-      <h4 class="card-title">To: {{item.toPlaceName}}</h4>
-      <h4 class="card-title">From: {{item.fromPlaceName}}</h4>
-     <button class="btn btn-primary" (click)="onBook()">Book</button>
-     <button class="btn btn-danger" (click)="onReshedule()">ReShedule</button>
+
+  <div class="container card-container-style">
+    <div class="card h-100 w-100 card-style" >
+       <div class="row">
+         <div class="col-3">
+            <img [src]="item.airline.logo" alt="" class="img-fluid">
+         </div>
+         <div class="col-7">
+            <table >
+                <tbody>
+                  <tr>
+                    <td width="80%">Airline Name</td>
+                    <td>{{item.airline.name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Flight No</td>
+                    <td>{{item.flightNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td>From </td>
+                    <td>{{item.fromPlaceName}}</td>
+                  </tr>
+                  <tr>
+                    <td>To </td>
+                    <td>{{item.toPlaceName}}</td>
+                  </tr>
+                  <tr>
+                    <td>Journey Date</td>
+                    <td>{{item.startDate}}</td>
+                  </tr>
+
+                  
+                </tbody>
+              </table>
+
+         </div>
+         <div class="col-2">
+            <button class="btn btn-primary" *ngIf="!isAdmin" (click)="onBook()"> Book Seats</button>
+            <button class="btn btn-primary" *ngIf="isAdmin" (click)="onReshedule()"> Reshedule Flight</button>
+         </div>
+       </div>
     </div>
-  </div>
+</div>
