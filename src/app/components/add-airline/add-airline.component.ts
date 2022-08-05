@@ -33,7 +33,7 @@ export class AddAirlineComponent implements OnInit {
       this._service.POST(url,false,this.airline).subscribe(
         res => {
           console.log(res);
-          //this.handelEvent();
+          this.handelEvent();
         }
       );
       

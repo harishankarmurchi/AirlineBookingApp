@@ -48,7 +48,7 @@ exportHtmlToPDF(){
         let position = 0;
         doc.addImage(contentDataURL, 'PNG', 0, position, docWidth, docHeight)
         
-        doc.save('exportedPdf.pdf');
+        doc.save('ticket.pdf');
     });
 }
 

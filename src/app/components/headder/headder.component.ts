@@ -19,6 +19,11 @@ export class HeadderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var role= localStorage.getItem('role')
+    if(role!= undefined && role === 'Admin')
+    {
+      this.isAdmin=true;
+    }
     this._interact.loginmessage$.subscribe(
       message =>{
         this.isAdmin=message

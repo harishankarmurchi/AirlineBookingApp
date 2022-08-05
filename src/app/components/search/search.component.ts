@@ -40,7 +40,8 @@ export class SearchComponent implements OnInit {
       // var date=this.searchFormData.journeyDate;
       // var newDate= date.setDate(date.getDate()+1);
        this.searchFormData.journeyDate=this.datepipe.transform(this.searchFormData.journeyDate,'yyyy-MM-dd')
-      this._service.POST(ServiceEndpoints.SEARCH,false,this.searchFormData)
+       console.log(this.searchFormData)
+       this._service.POST(ServiceEndpoints.SEARCH,false,this.searchFormData)
      .subscribe(
       (res:Flight)=>{this.flightList=res;
         console.log(this.flightList);

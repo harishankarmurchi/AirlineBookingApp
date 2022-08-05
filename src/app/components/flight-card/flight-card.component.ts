@@ -13,6 +13,7 @@ import { BookingComponent } from '../booking/booking.component';
 })
 export class FlightCardComponent implements OnInit {
   isAdmin=false;
+  image:any;
   constructor(private dailog:MatDialog) { }
   @Input() item!:Flight
 
@@ -22,7 +23,11 @@ export class FlightCardComponent implements OnInit {
     {
       this.isAdmin=true;
     }
+   var utfencode= new TextEncoder();
+   this.image= this.item.airline.logo;
   }
+
+  
   onBook(){
     var dailogConfig= new MatDialogConfig();
     dailogConfig.autoFocus=true;
