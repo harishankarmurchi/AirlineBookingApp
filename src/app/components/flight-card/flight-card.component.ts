@@ -31,7 +31,6 @@ export class FlightCardComponent implements OnInit {
   onBook(){
     var dailogConfig= new MatDialogConfig();
     dailogConfig.autoFocus=true;
-    dailogConfig.disableClose=true;
     dailogConfig.width = "90%";
     dailogConfig.data=this.item
     var ref=this.dailog.open(BookingComponent,dailogConfig);

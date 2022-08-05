@@ -1,13 +1,14 @@
 import { JsonpInterceptor } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Booking } from 'src/app/models/Booking';
 import { BookingFlightModel } from 'src/app/models/BookingFlightModel';
 import { Flight } from 'src/app/models/Flight';
 import { Passenger } from 'src/app/models/Passenger';
 import { seat } from 'src/app/models/Seat';
 import { ServiceEndpoints } from 'src/app/models/ServiceEndpoints';
+import { DiscountComponent } from 'src/app/popup-components/discount/discount.component';
 import { HttpserviceService } from 'src/app/services/httpservice.service';
 
 @Component({
@@ -24,7 +25,8 @@ export class BookingComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Flight,
     private _service:HttpserviceService,
-    public dialogRef: MatDialogRef<BookingComponent>
+    public dialogRef: MatDialogRef<BookingComponent>,
+    private dailog:MatDialog
   ) {
     this.passengerForm = new FormGroup({
       name: new FormControl('', [Validators.required,]),
@@ -83,7 +85,12 @@ export class BookingComponent implements OnInit {
   }
 
   onClose(){
-    this.dialogRef.close('');
+   var ref= this.dailog.open(DiscountComponent);
+   ref.afterClosed().subscribe(
+    res =>{
+      this.amount=this.amount-((res/100)*this.amount);
+    }
+   )
   }
 
   ngOnInit(): void {
